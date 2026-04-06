@@ -1,0 +1,889 @@
+/* ==========================================================================
+   1. GLOBAL STYLES & VARIABLES
+   ========================================================================== */
+:root {
+    --primary-red: #D32F2F;
+    --dark-red: #B71C1C;
+    --white: #FFFFFF;
+    --light-grey: #F5F5F5;
+    --medium-grey: #E0E0E0;
+    --dark-grey: #333333;
+    --text-color: #212121;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--white);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Common Buttons */
+.btn-primary {
+    display: inline-block;
+    background: var(--primary-red);
+    color: var(--white);
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: var(--dark-red);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   2. NAVIGATION & FOOTER
+   ========================================================================== */
+header {
+    background: var(--white);
+    border-bottom: 3px solid var(--primary-red);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-logo { height: 45px; }
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--dark-grey);
+}
+
+.logo span { color: var(--primary-red); }
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li { margin-left: 25px; }
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark-grey);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-red);
+}
+
+footer {
+    background: var(--dark-grey);
+    color: var(--white);
+    text-align: center;
+    padding: 3rem 0;
+    margin-top: 60px;
+}
+
+/* ==========================================================================
+   3. HOME PAGE SECTIONS
+   ========================================================================== */
+.hero {
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+}
+
+.hero h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+.highlight { color: var(--primary-red); }
+
+.features { padding: 80px 0; background-color: var(--light-grey); }
+
+.feature-row {
+    display: flex;
+    gap: 25px;
+}
+
+.feature-card {
+    background: var(--white);
+    padding: 40px 20px;
+    flex: 1;
+    text-align: center;
+    border-top: 5px solid var(--primary-red);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-radius: 5px;
+}
+
+/* ==========================================================================
+   ABOUT BRIEF SECTION (Side-by-Side Balance)
+   ========================================================================== */
+.home-about {
+    padding: 100px 0;
+    background-color: var(--white);
+}
+
+.about-flex {
+    display: flex;
+    align-items: center; /* Vertically centers text with image */
+    justify-content: space-between;
+    gap: 60px;
+}
+
+/* Make the image side smaller (40% width) */
+.about-image {
+    flex: 0 0 40%; 
+    max-width: 450px; /* Prevents it from getting too big on huge screens */
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 15px 15px 0px var(--light-grey); /* Adds a modern tech accent */
+    display: block;
+}
+
+/* Make the text side larger (60% width) */
+.about-text-content {
+    flex: 0 0 55%;
+}
+
+.about-text-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--dark-grey);
+}
+
+.about-text-content p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+.btn-link {
+    text-decoration: none;
+    color: var(--primary-red);
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.btn-link:hover {
+    padding-left: 10px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 992px) {
+    .about-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-image {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 40px;
+    }
+    .about-text-content {
+        flex: 0 0 100%;
+    }
+}
+
+
+/* ==========================================================================
+   VISION & MISSION (Side-by-Side Fix)
+   ========================================================================== */
+.vision-mission-section {
+    padding: 100px 0;
+    background-color: var(--white);
+}
+
+.flex-row {
+    display: flex;
+    gap: 30px; /* Space between the two boxes */
+    align-items: stretch; /* Makes both boxes the same height */
+}
+
+.vision-box, .mission-box {
+    flex: 1; /* Makes them take up equal width (50/50) */
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid var(--medium-grey);
+    transition: 0.3s ease;
+}
+
+/* Paragraph with Dark Grey Background */
+.dark-panel {
+    background-color: var(--dark-grey);
+    color: var(--white);
+    border: none;
+}
+
+.dark-panel h2 {
+    color: var(--primary-red);
+    margin-bottom: 15px;
+}
+
+.dark-panel p {
+    color: var(--light-grey);
+}
+
+/* Ensure images or icons inside these boxes don't break the layout */
+.vision-box h2 {
+    margin-bottom: 15px;
+}
+
+/* Responsive Fix: Stack them on mobile devices */
+@media (max-width: 850px) {
+    .flex-row {
+        flex-direction: column;
+    }
+}
+
+/* Centering the Values Heading */
+.section-title-centered {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--dark-grey);
+    margin-bottom: 50px; /* Space between heading and boxes */
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Fix for the side-by-side Vision/Mission */
+.flex-row {
+    display: flex;
+    gap: 30px;
+    align-items: stretch;
+}
+
+.vision-box, .mission-box {
+    flex: 1;
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid var(--medium-grey);
+}
+
+.dark-panel {
+    background-color: var(--dark-grey);
+    color: var(--white);
+    border: none;
+}
+
+/* Hero Button fix for secondary button */
+.btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: var(--white);
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 2px solid var(--white);
+    margin-left: 15px;
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    background: var(--white);
+    color: var(--dark-grey);
+}
+
+/* Responsive fix for the heading */
+@media (max-width: 600px) {
+    .section-title-centered {
+        font-size: 2rem;
+    }
+    .flex-row {
+        flex-direction: column;
+    }
+}
+
+/* --- SECTION SPACING --- */
+
+/* This adds space above and below the feature cards */
+.home-features {
+    padding: 100px 0; 
+    background-color: var(--white);
+}
+
+/* This adds space above and below the About Us brief */
+.home-about {
+    padding: 100px 0;
+    background-color: var(--light-grey); /* Using light grey to separate it from the white section above */
+    border-top: 1px solid var(--medium-grey);
+}
+
+/* Styling for the About Brief content */
+.about-flex {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-text-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--dark-grey);
+}
+
+.about-text-content p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Ensure the Hero doesn't feel cramped */
+.hero-main {
+    padding: 120px 0; /* Extra height if content is small */
+
+}
+
+/* ==========================================================================
+   MODERN GALLERY CAROUSEL (Scroll-Snap)
+   ========================================================================== */
+.carousel {
+    display: flex;
+    overflow-x: hidden; /* Hide manual scrollbar for auto-effect */
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 20px 0;
+    -webkit-overflow-scrolling: touch;
+}
+
+.carousel-item {
+    flex: 0 0 350px; /* Fixed width for consistent auto-scrolling */
+    scroll-snap-align: start;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 400px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* ==========================================================================
+   4. ABOUT PAGE
+   ========================================================================== */
+.about-hero {
+    background: linear-gradient(rgba(211, 47, 47, 0.85), rgba(51, 51, 51, 0.9)), url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1200&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    padding: 100px 0;
+    text-align: center;
+}
+
+.about-main { padding: 80px 0; }
+.about-flex { display: flex; align-items: center; gap: 60px; }
+.about-text-content { flex: 1.2; }
+.about-image-side { flex: 1; }
+
+.about-image-side img {
+    border-radius: 12px;
+    box-shadow: 20px 20px 0px var(--medium-grey);
+}
+
+.why-us { padding: 80px 0; background: var(--light-grey); text-align: center; }
+
+/* ==========================================================================
+   VIBRANT COLORFUL CTA SECTION
+   ========================================================================== */
+.about-cta-vibrant {
+    padding: 100px 0;
+    /* This creates a flashy Red to Dark Grey gradient */
+    background: linear-gradient(135deg, var(--primary-red) 0%, #1a1a1a 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Optional: Adds a subtle tech-pattern feel */
+.about-cta-vibrant::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.3;
+}
+
+.cta-glass-card {
+    position: relative;
+    z-index: 2;
+    padding: 60px 40px;
+    background: rgba(255, 255, 255, 0.05); /* Very subtle glass effect */
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.about-cta-vibrant h2 {
+    font-size: 3rem;
+    color: var(--white);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.about-cta-vibrant p {
+    font-size: 1.2rem;
+    color: var(--light-grey);
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+/* White Button for contrast on the red background */
+.btn-white {
+    display: inline-block;
+    background: var(--white);
+    color: var(--primary-red);
+    padding: 15px 35px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.btn-white:hover {
+    transform: scale(1.05);
+    background: var(--light-grey);
+}
+
+/* Outline Button */
+.btn-outline-white {
+    display: inline-block;
+    margin-left: 20px;
+    padding: 15px 35px;
+    border: 2px solid var(--white);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-outline-white:hover {
+    background: var(--white);
+    color: var(--primary-red);
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+    .about-cta-vibrant h2 { font-size: 2rem; }
+    .btn-outline-white { margin-left: 0; margin-top: 20px; }
+    .cta-buttons { display: flex; flex-direction: column; align-items: center; }
+}
+
+/* ==========================================================================
+   5. SHOP PAGE
+   ========================================================================== */
+.shop-intro {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--light-grey);
+}
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    padding: 60px 0;
+}
+
+.product-card {
+    background: var(--white);
+    border: 1px solid var(--medium-grey);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 25px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+/* ==========================================================================
+   CREATOR KIT & GEAR GRID STYLES
+   ========================================================================== */
+
+/* Flashy Hero Section */
+.creator-premium-hero {
+    background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+    padding: 120px 0;
+    color: var(--white);
+    text-align: center;
+    border-bottom: 5px solid var(--primary-red);
+}
+
+.creator-content .badge {
+    background: var(--primary-red);
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.creator-content h1 {
+    font-size: 4rem;
+    margin: 20px 0;
+}
+
+.kit-includes {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-weight: 600;
+}
+
+/* Gear Grid Styles */
+.gear-grid-section {
+    padding: 100px 0;
+    background-color: var(--light-grey);
+}
+
+.price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-red);
+    margin: 10px 0;
+}
+
+.desc {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.btn-small {
+    display: inline-block;
+    padding: 8px 20px;
+    background: var(--dark-grey);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.btn-small:hover {
+    background: var(--primary-red);
+}
+
+/* Ensure the grid matches the monitors on the other page */
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Reuse your product card styling but ensure it looks sharp here */
+.product-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border: 1px solid var(--medium-grey);
+}
+
+/* ==========================================================================
+   6. SERVICES PAGE
+   ========================================================================== */
+.services-hero {
+    background-color: var(--dark-grey);
+    color: var(--white);
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.services-hero h1 { color: var(--primary-red); }
+
+.pricing-section {
+    display: flex;
+    gap: 40px;
+    padding: 80px 0;
+}
+
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.price-table th { background: var(--medium-grey); padding: 15px; text-align: left; }
+.price-table td { padding: 15px; border-bottom: 1px solid var(--medium-grey); }
+
+/* ==========================================================================
+   SIDE-BY-SIDE PRICING TABLES
+   ========================================================================== */
+.pricing-flex-container {
+    display: flex;
+    gap: 40px; /* Space between the two tables */
+    align-items: flex-start; /* Keeps them aligned at the top */
+    margin-top: 40px;
+}
+
+.price-box {
+    flex: 1; /* Makes both table containers equal width */
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border-top: 5px solid var(--primary-red);
+}
+
+.price-box h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--dark-grey);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.price-table th {
+    background-color: var(--light-grey);
+    color: var(--primary-red);
+    padding: 12px;
+    text-align: left;
+    border-bottom: 2px solid var(--medium-grey);
+}
+
+.price-table td {
+    padding: 12px;
+    border-bottom: 1px solid var(--light-grey);
+    color: var(--dark-grey);
+}
+
+.price-table tr:hover {
+    background-color: #fffafa; /* Very subtle red tint on hover */
+}
+
+/* Responsive Fix: Stack tables on mobile */
+@media (max-width: 900px) {
+    .pricing-flex-container {
+        flex-direction: column;
+    }
+    
+    .price-box {
+        width: 100%;
+    }
+}
+
+/* ==========================================================================
+   7. CONTACT PAGE (Modern Layout)
+   ========================================================================== */
+.contact-hero {
+    background-color: var(--primary-red);
+    color: var(--white);
+    text-align: center;
+    padding: 100px 0 140px;
+    clip-path: ellipse(150% 100% at 50% 0%);
+}
+
+.contact-wrapper { margin-top: -100px; padding-bottom: 80px; }
+
+.contact-card {
+    display: flex;
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+.contact-sidebar {
+    flex: 1;
+    background: var(--dark-grey);
+    color: var(--white);
+    padding: 50px;
+}
+
+.contact-form-area {
+    flex: 1.5;
+    padding: 50px;
+}
+
+.input-group { margin-bottom: 20px; }
+.input-group label { display: block; font-weight: bold; margin-bottom: 5px; }
+.input-group input, .input-group select, .input-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--light-grey);
+    border-radius: 6px;
+}
+
+/* ==========================================================================
+   8. RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 992px) {
+    .shop-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-flex, .pricing-section, .contact-card { flex-direction: column; }
+    .about-image-side { order: -1; }
+}
+
+@media (max-width: 600px) {
+    .shop-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2.2rem; }
+    .feature-row { flex-direction: column; }
+}
+/* ==========================================================================
+   CLEAN THREE-COLUMN FOOTER
+   ========================================================================== */
+.main-footer {
+    background-color: var(--dark-grey);
+    color: var(--white);
+    padding: 80px 0 0; /* Space at top, bottom bar handled separately */
+    margin-top: 60px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding-bottom: 60px;
+}
+
+.footer-column h3 {
+    color: var(--primary-red);
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Column 1: Branding --- */
+.footer-logo {
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.footer-tagline {
+    color: var(--light-grey);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* --- Column 2: Button Links --- */
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-btn {
+    display: block;
+    color: var(--white);
+    text-decoration: none;
+    padding: 8px 0;
+    transition: 0.3s;
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-btn:hover {
+    color: var(--primary-red);
+    padding-left: 5px;
+}
+
+/* --- Column 3: Location --- */
+.contact-info p {
+    margin-bottom: 15px;
+    color: var(--light-grey);
+    font-size: 0.95rem;
+}
+
+/* --- Bottom Copyright Bar --- */
+.footer-bottom {
+    background-color: #1a1a1a;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Responsive Footer */
+@media (max-width: 850px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-column {
+        margin-bottom: 40px;
+    }
+    
+    .footer-btn:hover {
+        padding-left: 0;
+    }
+}
