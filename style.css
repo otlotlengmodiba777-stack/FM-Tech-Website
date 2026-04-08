@@ -119,7 +119,30 @@ footer {
 }
 
 /* ==========================================================================
-   3. HOME PAGE SECTIONS
+   3. MENU BUTTON FOR MOBILE RESPONSIVENESS@
+   ========================================================================== */
+/* This ensures the button is visible on mobile */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block !important; /* Force it to show */
+        position: relative;
+        z-index: 9999;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+
+    .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: #D32F2F; /* Red color so it's easy to spot */
+        transition: all 0.3s ease-in-out;
+    }
+}
+/* ==========================================================================
+   4. HOME PAGE SECTIONS
    ========================================================================== */
 .hero {
     height: 80vh;
@@ -154,7 +177,7 @@ footer {
 }
 
 /* ==========================================================================
-   ABOUT BRIEF SECTION (Side-by-Side Balance)
+   4. ABOUT BRIEF SECTION (Side-by-Side Balance)
    ========================================================================== */
 .home-about {
     padding: 100px 0;
@@ -230,7 +253,7 @@ footer {
 
 
 /* ==========================================================================
-   VISION & MISSION (Side-by-Side Fix)
+   6. VISION & MISSION (Side-by-Side Fix)
    ========================================================================== */
 .vision-mission-section {
     padding: 100px 0;
@@ -380,7 +403,7 @@ footer {
 }
 
 /* ==========================================================================
-   MODERN GALLERY CAROUSEL (Scroll-Snap)
+  7. MODERN GALLERY CAROUSEL (Scroll-Snap)
    ========================================================================== */
 .carousel {
     display: flex;
@@ -407,7 +430,7 @@ footer {
     object-fit: cover;
 }
 /* ==========================================================================
-   4. ABOUT PAGE
+   8. ABOUT PAGE
    ========================================================================== */
 .about-hero {
     background: linear-gradient(rgba(211, 47, 47, 0.85), rgba(51, 51, 51, 0.9)), url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1200&auto=format&fit=crop');
@@ -431,7 +454,7 @@ footer {
 .why-us { padding: 80px 0; background: var(--light-grey); text-align: center; }
 
 /* ==========================================================================
-   VIBRANT COLORFUL CTA SECTION
+   9. VIBRANT COLORFUL CTA SECTION
    ========================================================================== */
 .about-cta-vibrant {
     padding: 100px 0;
@@ -522,7 +545,7 @@ footer {
 }
 
 /* ==========================================================================
-   5. SHOP PAGE
+   10. SHOP PAGE
    ========================================================================== */
 .shop-intro {
     text-align: center;
@@ -565,7 +588,7 @@ footer {
 }
 
 /* ==========================================================================
-   CREATOR KIT & GEAR GRID STYLES
+   11.CREATOR KIT & GEAR GRID STYLES
    ========================================================================== */
 
 /* Flashy Hero Section */
@@ -651,7 +674,7 @@ footer {
 }
 
 /* ==========================================================================
-   6. SERVICES PAGE
+   12. SERVICES PAGE
    ========================================================================== */
 .services-hero {
     background-color: var(--dark-grey);
@@ -679,7 +702,7 @@ footer {
 .price-table td { padding: 15px; border-bottom: 1px solid var(--medium-grey); }
 
 /* ==========================================================================
-   SIDE-BY-SIDE PRICING TABLES
+   13. SIDE-BY-SIDE PRICING TABLES
    ========================================================================== */
 .pricing-flex-container {
     display: flex;
@@ -740,7 +763,7 @@ footer {
 }
 
 /* ==========================================================================
-   7. CONTACT PAGE (Modern Layout)
+   14. CONTACT PAGE (Modern Layout)
    ========================================================================== */
 .contact-hero {
     background-color: var(--primary-red);
@@ -782,7 +805,7 @@ footer {
 }
 
 /* ==========================================================================
-   8. RESPONSIVENESS
+   15. RESPONSIVENESS
    ========================================================================== */
 @media (max-width: 992px) {
     .shop-grid { grid-template-columns: repeat(2, 1fr); }
@@ -796,7 +819,7 @@ footer {
     .feature-row { flex-direction: column; }
 }
 /* ==========================================================================
-   CLEAN THREE-COLUMN FOOTER
+   16. CLEAN THREE-COLUMN FOOTER
    ========================================================================== */
 .main-footer {
     background-color: var(--dark-grey);
